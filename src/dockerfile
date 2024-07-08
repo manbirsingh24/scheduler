@@ -1,0 +1,28 @@
+FROM node:18.16.0 AS production
+
+WORKDIR /app/scheduler-service
+COPY package.json .
+COPY package-lock.json .
+COPY tsconfig.json .
+RUN npm i
+
+COPY . .
+
+RUN npm run build
+
+ENV PORT=7000
+#ENV MONGO_URI="mongodb+srv://admin:flairlabs@flairlabspoc.rmefh8k.mongodb.net/webhook-service?retryWrites=true&w=majority"
+ENV MONGO_URI="mongodb+srv://admin:admin@cluster0.4y9kbzs.mongodb.net/scheduler-service?retryWrites=true&w=majority"
+ENV NODE_ENV="development"
+ENV RMQ_URI="amqp://172.17.0.2"
+
+# ExchangeDetails
+ENV WORK_FLOW_MANAGER_EXCHANGE_TYPE="topic"
+ENV WORK_FLOW_MANAGER_EXCHANGE_NAME="workflow-manager"
+
+# Routing keys
+ENV ACTION_KEY="action-key"
+
+EXPOSE $PORT
+
+CMD ["npm", "run", "start"]

@@ -1,0 +1,39 @@
+{
+  "name": "scheduler-service",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node ./dist/server.js",
+    "dev": "nodemon ./server.ts"
+
+  },
+  "keywords": [],
+  "author": "Manbir Singh",
+  "license": "ISC",
+  "dependencies": {
+    "@flairlabs/workflow-manager-types": "git+https://gitlab+deploy-token-3524716:Nj6rnuDMmLiVyJ9864qc@gitlab.com/FlairLabs/internal-projects/workflow-manager/workflow-manager-types.git#mayur_dev",
+    "@flairlabs/workflow-manager-utils": "git+https://gitlab+deploy-token-3544394:mZ-yu4h_Tr6nxbawewWA@gitlab.com/FlairLabs/internal-projects/workflow-manager/workflow-manager-utils.git#mayur_utils",
+    "@types/body-parser": "^1.19.5",
+    "body-parser": "^1.20.2",
+    "express": "^4.19.2",
+    "lodash": "^4.17.21",
+    "mongoose": "^8.4.4",
+    "morgan": "^1.10.0",
+    "node-schedule": "^2.1.1",
+    "nodemon": "^3.1.4"
+  },
+  "devDependencies": {
+    "@types/amqplib": "^0.10.5",
+    "@types/express": "^4.17.21",
+    "@types/lodash": "^4.17.6",
+    "@types/mongoose": "^5.11.97",
+    "@types/morgan": "^1.9.9",
+    "@types/node": "^20.14.9",
+    "@types/node-schedule": "^2.1.7",
+    "@types/nodemon": "^1.19.6",
+    "@types/uuid": "^10.0.0",
+    "typescript": "^5.5.3"
+  }
+}
